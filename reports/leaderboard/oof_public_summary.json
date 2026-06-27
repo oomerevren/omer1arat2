@@ -1,0 +1,25 @@
+{
+  "overall_correlation": {
+    "n": 0,
+    "pearson": null,
+    "spearman": null,
+    "warning": "too_few_public_lb_points_for_reliable_correlation"
+  },
+  "sign_agreement": {
+    "n": 0,
+    "sign_agreement_rate": null
+  },
+  "n_rows": 59,
+  "n_public_lb": 0,
+  "decision_priority": [
+    "OOF macro-F1",
+    "class0 F1",
+    "splitter reliability",
+    "threshold fragility",
+    "seed stability",
+    "segment collapse risk",
+    "model family drift",
+    "public LB"
+  ],
+  "small_sample_warning": "Do not infer private-LB truth from fewer than 3 public submissions."
+}

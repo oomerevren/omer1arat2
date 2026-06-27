@@ -1,0 +1,18 @@
+{
+  "recommended_splitter": "term_group",
+  "note": "Recommendation is statistical only if n_public>=3; otherwise guarded default.",
+  "rows": [
+    {
+      "splitter": "term_group",
+      "n_experiments": 59,
+      "n_public": 0,
+      "pearson": null,
+      "spearman": null,
+      "sign_agreement_rate": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "conservative_score": 0.0,
+      "high_risk_count": 0
+    }
+  ]
+}

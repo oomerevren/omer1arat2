@@ -1,0 +1,60 @@
+ablation_id,category,changed_component,risk_flag,note,status
+feat_all_features,feature,all_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_lexical,feature,use_lexical_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_category,feature,use_category_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_brand,feature,use_brand_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_attribute,feature,use_attribute_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_gender_age,feature,use_gender_age_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_query_features,feature,use_query_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_retrieval,feature,use_retrieval_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_semantic,feature,use_semantic_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_no_metadata,feature,use_metadata_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_only_core_features,feature,only_core_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_only_lexical_category_brand,feature,only_lexical_category_brand,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_only_attribute_gender_age,feature,only_attribute_gender_age,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_lexical_plus_retrieval,feature,lexical_plus_retrieval,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+feat_attribute_plus_semantic,feature,attribute_plus_semantic,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_only,negative,easy,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_plus_same_category,negative,same_category,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_plus_same_brand,negative,same_brand,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_plus_attribute_conflict,negative,attribute_conflict,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_plus_lexical_confusing,negative,lexical_confusing,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_easy_plus_dense_hard,negative,dense_hard,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+neg_full_negative_mix,negative,full_mix,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+neg_full_negative_mix_without_dense,negative,full_mix_no_dense,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+neg_strict_false_negative_filter,negative,false_negative_filter,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+neg_moderate_false_negative_filter,negative,false_negative_filter,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+ret_no_retrieval_features,retrieval,retrieval_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+ret_bm25_only,retrieval,bm25_only,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+ret_dense_only,retrieval,dense_only,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+ret_hybrid,retrieval,hybrid,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+ret_rank_off,retrieval,rank_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+ret_score_off,retrieval,score_features,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+ret_overlap_off,retrieval,overlap_agreement,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+sig_no_attribute_conflict,feature,attribute_conflict_signals,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+sig_no_gender_conflict,feature,gender_conflict,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+sig_no_age_conflict,feature,age_conflict,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+sig_no_brand_contradiction,feature,brand_contradiction,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+sig_no_size_number,feature,size_number,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+model_tabular_baseline,model,tabular,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+model_sklearn_text_baseline,model,sklearn_text,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+model_transformer_ce_best,model,transformer_ce,needs_fold_safe_recheck,requires real transformer/GPU OOF; skipped unless --allow-transformer,not_run
+model_tabular_plus_sklearn_text,model,blend_tab_sklearn,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+model_tabular_plus_transformer,model,blend_tab_transformer,needs_fold_safe_recheck,requires real transformer/GPU OOF; skipped unless --allow-transformer,not_run
+model_tabular_plus_transformer_plus_dense,model,blend_tab_transformer_dense,needs_fold_safe_recheck,requires real transformer/GPU OOF; skipped unless --allow-transformer,not_run
+model_best_single,model,best_single,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+model_best_balanced_blend,model,best_blend,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_fixed_05,threshold,fixed_05,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_oof_best,threshold,oof_best,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_class0_protective,threshold,class0_protective,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_class1_protective,threshold,class1_protective,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_stable_midpoint,threshold,stable_midpoint,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+thr_segment_analysis,threshold,segment_threshold,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+dense_no_dense_anywhere,dense,dense_off,needs_fold_safe_recheck,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet",not_run
+dense_features_only,dense,dense_features,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_hard_negatives_only,dense,dense_negatives,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_features_plus_negatives,dense,dense_features_and_negatives,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_text_v1,dense,item_text_version,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_text_v2,dense,item_text_version,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_backend_A,dense,dense_backend_A,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run
+dense_backend_B,dense,dense_backend_B,needs_fold_safe_recheck,requires real_dense artefacts; skipped unless --allow-real-dense,not_run

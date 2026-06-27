@@ -1,0 +1,89 @@
+{
+  "final_decision": "NO_GO",
+  "rationale": "Final metadata/config freeze is ready, but actual validated final submission artefacts are not materialized. Immediate Kaggle submission is not safe.",
+  "blocking_issues": [
+    {
+      "component_name": "actual final submissions",
+      "open_gaps": "family submission.csv files not materialized | validator reports pending",
+      "recommended_action": "Generate official family submissions from real test predictions and rerun release validation until release_ready=true."
+    }
+  ],
+  "acceptable_risks": [
+    {
+      "component_name": "retrieval",
+      "open_gaps": "official retrieval evaluation not run in this workspace",
+      "recommended_action": "Run build_retrieval_index + evaluate_dense_retrieval on official items/queries."
+    },
+    {
+      "component_name": "dense retrieval",
+      "open_gaps": "real dense model/index not materialized in workspace | public/OOF dense lift unknown",
+      "recommended_action": "Build real dense index with official items; compare dense_v1/v2 and BM25 overlap before final use."
+    },
+    {
+      "component_name": "negative mining",
+      "open_gaps": "fold-aware negative rebuild not fully proven on official OOF",
+      "recommended_action": "Use fold-aware negative builds for final validation; inspect uncertain/skipped rates."
+    },
+    {
+      "component_name": "semantic hard negatives",
+      "open_gaps": "semantic hard negative OOF gain unproven | false negative risk remains",
+      "recommended_action": "Keep dense hard negatives out of default unless ablation shows class0-safe lift."
+    },
+    {
+      "component_name": "tabular modeling",
+      "open_gaps": "no official OOF metrics in workspace",
+      "recommended_action": "Run official OOF; keep tabular as baseline/family A backbone until CE proves lift."
+    },
+    {
+      "component_name": "transformer cross-encoder",
+      "open_gaps": "real transformer fine-tuning not run here | operational GPU/dependency risk",
+      "recommended_action": "Run GPU OOF with backend=transformers; compare against sklearn_text and tabular before final weighting."
+    },
+    {
+      "component_name": "ensemble",
+      "open_gaps": "no ready OOF candidates, no prediction-correlation evidence",
+      "recommended_action": "Materialize OOF/test preds; reject highly correlated redundant blends."
+    },
+    {
+      "component_name": "validation framework",
+      "open_gaps": "public/OOF correlation has 0 public points",
+      "recommended_action": "Run splitter ablation on official data and track public/OOF correlation over submissions."
+    },
+    {
+      "component_name": "OOF engine",
+      "open_gaps": "completed ablation rows=0/59",
+      "recommended_action": "Complete official OOF ablations for selected final candidates."
+    },
+    {
+      "component_name": "threshold optimization",
+      "open_gaps": "threshold stability not measured on real final OOF",
+      "recommended_action": "Use OOF global/stable midpoint; never tune directly to public LB."
+    },
+    {
+      "component_name": "error analysis",
+      "open_gaps": "requires real OOF errors to populate final insights",
+      "recommended_action": "Run after first official OOF; inspect FP/FN class0-heavy segments."
+    },
+    {
+      "component_name": "pseudo labeling",
+      "open_gaps": "not validated as final lift",
+      "recommended_action": "Keep disabled unless late ablation proves safe; avoid final unproven pseudo labels."
+    },
+    {
+      "component_name": "public/OOF/private-LB strategy",
+      "open_gaps": "no public LB history yet",
+      "recommended_action": "Add public LB entries after every upload; do not over-infer under n<3."
+    },
+    {
+      "component_name": "reproducibility",
+      "open_gaps": "full dry-run impossible without official data/test predictions",
+      "recommended_action": "Run final dry-run after official artefacts arrive; archive command outputs."
+    }
+  ],
+  "required_actions_before_submission": [
+    "Materialize family submission.csv files from official test predictions.",
+    "Run submission validator and ensure reports are present.",
+    "Re-run package_final_families.py and validate_final_release.py until release_ready=true.",
+    "Run at least one real OOF/ablation cycle on official data before trusting model-family decisions."
+  ]
+}

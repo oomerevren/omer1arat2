@@ -1,0 +1,170 @@
+# TEKNOFEST 2026 - Base Configuration
+# Tüm deneyler bu config'den inherit eder.
+
+experiment:
+  name: "baseline"
+  seed: 42
+  seeds: [42, 123, 2026, 3407, 7777]
+  mode: "final"  # kaggle | final
+  competition_end_date: "2026-09-15"
+  output_dir: "./experiments/outputs"
+  log_level: "INFO"
+
+data:
+  train_path: "./data/train.csv"
+  test_path: "./data/test.csv"
+  product_db_path: null  # opsiyonel
+  product_text_column: "product_name"
+  query_column: "search_query"
+  label_column: "is_relevant"
+  id_column: "product_id"
+  category_column: "category"
+  brand_column: "brand"
+  color_column: "product_color"
+  material_column: "product_material"
+  
+  preprocessing:
+    lowercase: true
+    remove_punctuation: true
+    remove_numbers: false
+    normalize_unicode: true
+    lemmatizer: "zemberek"  # zemberek | zeyrek | none
+    
+  augmentation:
+    enabled: true
+    max_per_query: 3
+    strategies:
+      synonym_replacement: true
+      brand_variation: true
+      category_expansion: true
+      color_synonym: true
+      typo_simulation: false
+    
+  negative_mining:
+    enabled: true
+    negatives_per_positive: 5
+    dense_model_name: "intfloat/multilingual-e5-large"
+    strategies:
+      same_category: 1
+      similar_name: 2
+      same_brand: 1
+      embedding_nearby: 2
+      bm25_hard: 2
+
+features:
+  enabled:
+    text_overlap: true
+    fuzzy_token_set_ratio: true
+    jaccard_similarity: true
+    query_coverage: true
+    bm25_score: true
+    fuzzy_brand_match: true
+    brand_exact_match: true
+    category_exact_match: true
+    category_hierarchy_overlap: true
+    color_match: true
+    material_match: true
+    embedding_cosine_similarity: true
+    # Trendyol DNA (Aşama 4)
+    trendyol_embed_features: true
+    matryoshka_dims: [128, 512, 768]
+  use_trendyol_embed: true
+
+model:
+  type: "cross_encoder"  # cross_encoder | bi_encoder | catboost | lightgbm | ensemble
+  cross_encoder:
+    model_name: "dbmdz/bert-base-turkish-cased"
+    alternative_models:
+      - "dbmdz/distilbert-base-turkish-cased"
+      - "intfloat/multilingual-e5-large"
+      - "BAAI/bge-m3"
+    num_labels: 3  # 2 for kaggle, 3 for final
+    max_length: 256
+    dropout: 0.1
+    
+  catboost:
+    iterations: 1000
+    depth: 6
+    learning_rate: 0.03
+    l2_leaf_reg: 3.0
+    early_stopping_rounds: 50
+    
+  lightgbm:
+    num_leaves: 64
+    min_child_samples: 20
+    learning_rate: 0.05
+    n_estimators: 500
+
+training:
+  n_folds: 5
+  run_cv_before_train: true
+  num_epochs: 3
+  batch_size: 16
+  gradient_accumulation_steps: 2
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  fp16: true
+  early_stopping_patience: 3
+  save_total_limit: 3
+
+validation:
+  methods:
+    stratified_kfold:
+      enabled: true
+      n_splits: 5
+    group_kfold:
+      enabled: true
+      n_splits: 5
+    repeated_kfold:
+      enabled: false
+      n_splits: 5
+      n_repeats: 3
+  metric: "macro_f1"
+  target_std_dev: 0.005
+
+ensemble:
+  method: "weighted_average"  # weighted_average | rank_average | stacking
+  n_models: 5
+  optuna_trials: 100
+  weights: [0.25, 0.25, 0.20, 0.15, 0.15]
+
+threshold:
+  search_range: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90]
+  metric: "macro_f1"
+  auto_select: true
+  category_specific: true
+
+pseudo_labeling:
+  enabled: true
+  unlabeled_path: "./data/unlabeled.csv"
+  positive_threshold: 0.99
+  negative_threshold: 0.01
+  max_pseudo_samples: 5000
+  max_iterations: 3
+
+distillation:
+  enabled: true
+  teacher_model: "dbmdz/bert-base-turkish-cased"
+  student_model: "dbmdz/distilbert-base-turkish-cased"
+  temperature: 3.0
+  alpha: 0.7
+  margin_mse_enabled: true # Added based on SOTA research
+
+quantization:
+  enabled: true
+  method: "dynamic"  # dynamic | static | onnx
+  onnx_opset: 14
+
+tracking:
+  backend: "mlflow"  # mlflow | wandb | tensorboard | none
+  # Local: sqlite:///./experiments/mlflow.db
+  # Remote: https://your-mlflow-server.com (Aşama 5.4)
+  # Databricks: databricks://...
+  mlflow_uri: "sqlite:///./experiments/mlflow.db"
+  experiment_name: "teknofest2026"
+  log_artifacts: true
+  log_model: true
+  tags:
+    competition: "teknofest2026"
+    task: "ecommerce_relevance"

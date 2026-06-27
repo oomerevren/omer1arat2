@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      - MODEL_PATH=/app/models/ce_int8.onnx
+      - REDIS_URL=redis://redis:6379
+      - PRODUCT_DB=/app/data/products.parquet
+    volumes:
+      - ./experiments/outputs:/app/models:ro
+      - ./data:/app/data:ro
+    depends_on: [redis, opensearch]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    volumes: [redis_data:/data]
+  opensearch:
+    image: opensearchproject/opensearch:2.11.0
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "DISABLE_SECURITY_PLUGIN=true"
+    ulimits:
+      memlock: {soft: -1, hard: -1}
+    ports: ["9200:9200"]
+    volumes: [opensearch_data:/usr/share/opensearch/data]
+  prometheus:
+    image: prom/prometheus
+    ports: ["9090:9090"]
+    volumes: [./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml]
+  grafana:
+    image: grafana/grafana
+    ports: ["3001:3000"]
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+volumes:
+  redis_data:
+  opensearch_data:

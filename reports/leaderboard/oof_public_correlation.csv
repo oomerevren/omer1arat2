@@ -1,0 +1,60 @@
+experiment_id,experiment_name,submission_id,file_path,model_family,splitter,threshold,OOF macro-F1,class0 F1,class1 F1,public_lb_score,public_minus_oof,public_rank_delta,threshold_fragility,seed_std,risk_flag,strategic_status,notes
+feat_all_features,tab_all_features,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_lexical,tab_no_lexical,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_category,tab_no_category,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_brand,tab_no_brand,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_attribute,tab_no_attribute,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_gender_age,tab_no_gender_age,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_query_features,tab_no_query_features,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_retrieval,tab_no_retrieval,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_semantic,tab_no_semantic,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_no_metadata,tab_no_metadata,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_only_core_features,tab_only_core_features,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_only_lexical_category_brand,tab_only_lexical_category_brand,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_only_attribute_gender_age,tab_only_attribute_gender_age,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_lexical_plus_retrieval,tab_lexical_plus_retrieval,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+feat_attribute_plus_semantic,tab_attribute_plus_semantic,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_only,tab_easy_only_neg,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_plus_same_category,tab_easy_plus_same_category_neg,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_plus_same_brand,tab_easy_plus_same_brand_neg,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_plus_attribute_conflict,tab_easy_plus_attribute_conflict_neg,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_plus_lexical_confusing,tab_easy_plus_lexical_confusing_neg,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_easy_plus_dense_hard,tab_easy_plus_dense_hard_neg,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+neg_full_negative_mix,tab_full_negative_mix_neg,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+neg_full_negative_mix_without_dense,tab_full_negative_mix_without_dense_neg,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+neg_strict_false_negative_filter,tab_strict_false_negative_filter_neg,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+neg_moderate_false_negative_filter,tab_moderate_false_negative_filter_neg,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+ret_no_retrieval_features,tab_no_retrieval_features,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+ret_bm25_only,tab_bm25_only_retrieval,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+ret_dense_only,tab_dense_only_retrieval,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK|RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+ret_hybrid,tab_hybrid_retrieval,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK|RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+ret_rank_off,tab_retrieval_rank_off,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+ret_score_off,tab_retrieval_score_off,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+ret_overlap_off,tab_retrieval_overlap_off,,,retrieval_heavy,term_group,,,,,,,,,,RETRIEVAL_FEATURE_DRIFT,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+sig_no_attribute_conflict,tab_no_attribute_conflict,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+sig_no_gender_conflict,tab_no_gender_conflict,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+sig_no_age_conflict,tab_no_age_conflict,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+sig_no_brand_contradiction,tab_no_brand_contradiction,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+sig_no_size_number,tab_no_size_number,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+model_tabular_baseline,tabular_baseline,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+model_sklearn_text_baseline,sklearn_text_baseline,,,sklearn_text,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+model_transformer_ce_best,transformer_ce_best,,,transformer_ce,term_group,,,,,,,,,,,high_risk_experimental,requires real transformer/GPU OOF; skipped unless --allow-transformer
+model_tabular_plus_sklearn_text,tabular_plus_sklearn_text,,,ensemble,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+model_tabular_plus_transformer,tabular_plus_transformer,,,ensemble,term_group,,,,,,,,,,,high_risk_experimental,requires real transformer/GPU OOF; skipped unless --allow-transformer
+model_tabular_plus_transformer_plus_dense,tabular_plus_transformer_plus_dense_signals,,,ensemble,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real transformer/GPU OOF; skipped unless --allow-transformer
+model_best_single,best_single_model,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+model_best_balanced_blend,best_balanced_blend,,,ensemble,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_fixed_05,threshold_fixed_05,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_oof_best,threshold_oof_best,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_class0_protective,threshold_class0_protective,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_class1_protective,threshold_class1_protective,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_stable_midpoint,threshold_stable_midpoint,,,tabular,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+thr_segment_analysis,threshold_segment_analysis_only,,,unknown,term_group,,,,,,,,,,,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+dense_no_dense_anywhere,no_dense_anywhere,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,"missing_data: data/items.csv,data/processed/train_with_negatives.parquet"
+dense_features_only,dense_features_only,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_hard_negatives_only,dense_hard_negatives_only,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_features_plus_negatives,dense_features_plus_dense_negatives,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_text_v1,dense_text_v1,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_text_v2,dense_text_v2,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_backend_A,dense_backend_A_multilingual_minilm,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense
+dense_backend_B,dense_backend_B_turkish_candidate,,,dense_enhanced,term_group,,,,,,,,,,DENSE_ARTIFACT_RISK,high_risk_experimental,requires real_dense artefacts; skipped unless --allow-real-dense

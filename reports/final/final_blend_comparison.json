@@ -1,0 +1,13 @@
+{
+  "tested_blends": [],
+  "best_weighted_blends": [],
+  "best_rank_blends": [],
+  "rejected_blends": [
+    {
+      "reason": "no_ready_oof_candidates",
+      "detail": "Official OOF candidate files are required."
+    }
+  ],
+  "prediction_correlation": {},
+  "family_mapping": {}
+}

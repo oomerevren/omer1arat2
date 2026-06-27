@@ -1,0 +1,82 @@
+{
+  "warning": "Do not rank families from public LB unless n_public is sufficient; use OOF/class0/seed stability first.",
+  "families": [
+    {
+      "model_family": "dense_enhanced",
+      "n_experiments": 15,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 15
+    },
+    {
+      "model_family": "ensemble",
+      "n_experiments": 4,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 1
+    },
+    {
+      "model_family": "retrieval_heavy",
+      "n_experiments": 7,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 7
+    },
+    {
+      "model_family": "sklearn_text",
+      "n_experiments": 1,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 0
+    },
+    {
+      "model_family": "tabular",
+      "n_experiments": 25,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 0
+    },
+    {
+      "model_family": "transformer_ce",
+      "n_experiments": 1,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 0
+    },
+    {
+      "model_family": "unknown",
+      "n_experiments": 6,
+      "n_public": 0,
+      "oof_mean": null,
+      "class0_mean": null,
+      "public_minus_oof_mean": null,
+      "public_minus_oof_std": null,
+      "public_optimistic_count": 0,
+      "dense_or_retrieval_risk_count": 0
+    }
+  ]
+}

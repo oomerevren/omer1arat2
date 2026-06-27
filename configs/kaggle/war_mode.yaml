@@ -1,0 +1,365 @@
+# TEKNOFEST 2026 E-Ticaret — Kaggle War Mode
+# Strictly aligned with official Kaggle data contract.
+
+mode: kaggle_war_mode
+
+problem:
+  type: binary_pair_classification
+  input: [term_id, item_id]
+  auxiliary_tables: [terms.csv, items.csv]
+  train_labels: positive_only
+  test_labels: unlabeled_candidate_pairs
+  output_columns: [id, prediction]
+
+paths:
+  items: data/items.csv
+  terms: data/terms.csv
+  training_pairs: data/training_pairs.csv
+  submission_pairs: data/submission_pairs.csv
+  sample_submission: data/sample_submission.csv
+
+  # Pair-centric merged datasets: output of scripts_kaggle/build_pair_dataset.py
+  train_merged: data/processed/train_pairs_merged.parquet
+  test_merged: data/processed/submission_pairs_merged.parquet
+
+  # Current model input. build_negatives.py writes train_with_negatives here.
+  train_model_input: data/processed/train_with_negatives.parquet
+  test_model_input: data/processed/submission_pairs_merged.parquet
+  uncertain_negatives: data/processed/uncertain_negative_candidates.parquet
+  retrieval_index: artifacts/retrieval/hybrid_retriever.pkl
+  train_features: data/processed/train_features.parquet
+  test_features: data/processed/test_features.parquet
+
+  model: models_kaggle/tfidf_logreg.joblib
+  metrics: models_kaggle/metrics.json
+  submission: submissions/kaggle_submission.csv
+
+reports:
+  train_pair_build: reports/data_quality/train_pair_build_report.json
+  test_pair_build: reports/data_quality/test_pair_build_report.json
+  negative_mining_json: reports/negative_mining/negative_mining_report.json
+  negative_mining_md: reports/negative_mining/negative_mining_report.md
+  retrieval_index_json: reports/retrieval/index_report.json
+  retrieval_examples_md: reports/retrieval/retrieval_examples.md
+  dense_vs_bm25_comparison: reports/retrieval/dense_vs_bm25_comparison.csv
+  query_segment_retrieval_comparison: reports/retrieval/query_segment_retrieval_comparison.json
+  semantic_confuser_examples: reports/retrieval/semantic_confuser_examples.md
+  feature_catalog: reports/features/feature_catalog.json
+  feature_summary: reports/features/feature_summary.md
+  submission_validation: reports/submissions/submission_validation_report.json
+  submission_registry: reports/submissions/submission_registry.csv
+
+data_contract:
+  items_csv:
+    required_columns: [item_id, title, category, brand, gender, age_group, attributes]
+    unique_key: item_id
+    no_empty: [title]
+    tolerant_unknown: [gender, age_group]
+  terms_csv:
+    required_columns: [term_id, query]
+    unique_key: term_id
+    no_empty: [query]
+  training_pairs_csv:
+    required_columns: [id, term_id, item_id, label]
+    unique_key: id
+    unique_pair: [term_id, item_id]
+    label_required: true
+    positive_only: true
+  submission_pairs_csv:
+    required_columns: [id, term_id, item_id]
+    unique_key: id
+    unique_pair: [term_id, item_id]
+    label_required: false
+  sample_submission_csv:
+    required_columns: [id, prediction]
+    unique_key: id
+
+canonical_fields:
+  id: id
+  term_id: term_id
+  item_id: item_id
+  query: query
+  title: title
+  category: category
+  brand: brand
+  gender: gender
+  age_group: age_group
+  attributes: attributes
+  attribute_dict: attribute_dict
+  attribute_keys: attribute_keys
+  attribute_values: attribute_values
+  normalized_attribute_text: normalized_attribute_text
+  color_value: color_value
+  material_value: material_value
+  style_value: style_value
+  full_item_text: full_item_text
+  retrieval_text: retrieval_text
+  dense_text: dense_text
+  label: label
+  prediction: prediction
+
+data:
+  columns:
+    id: id
+    term_id: term_id
+    item_id: item_id
+    query: query
+    title: title
+    category: category
+    brand: brand
+    gender: gender
+    age_group: age_group
+    attributes: attributes
+    attribute_dict: attribute_dict
+    attribute_keys: attribute_keys
+    attribute_values: attribute_values
+    normalized_attribute_text: normalized_attribute_text
+    color_value: color_value
+    material_value: material_value
+    style_value: style_value
+    full_item_text: full_item_text
+    retrieval_text: retrieval_text
+    dense_text: dense_text
+    label: label
+    prediction: prediction
+  negative_mining:
+    enabled: true
+    note: controlled_by_top_level_negative_mining_config
+
+negative_mining:
+  enabled: true
+  seed: 42
+  mode: global
+  fold_column: fold
+  active_fold: null
+  exclude_uncertain: true
+  max_candidates_per_query: 250
+  easy_negatives_per_positive: 1
+  same_category_negatives_per_positive: 1
+  same_brand_negatives_per_positive: 1
+  lexical_negatives_per_positive: 1
+  attribute_conflict_negatives_per_positive: 1
+  dense_negatives_per_positive: 2
+  dense_top_k: 100
+  use_bm25_pool: true
+  use_dense_pool: true
+  use_same_category_pool: true
+  use_same_brand_pool: true
+  false_negative_thresholds:
+    very_high_lexical: 0.92
+    variant_lexical: 0.82
+    hard_lexical: 0.35
+    very_high_dense: 0.94
+  dense_false_negative_thresholds:
+    very_high_lexical: 0.92
+    variant_lexical: 0.82
+    hard_lexical: 0.35
+    very_high_dense: 0.94
+    dense_plus_lexical_high: 0.88
+    semantic_variant_risk: 0.90
+    dense_hard_min: 0.35
+
+retrieval:
+  enabled: true
+  seed: 42
+  enabled_retrievers: [bm25, dense]
+  bm25_top_k: 50
+  dense_top_k: 50
+  same_category_top_k: 30
+  same_brand_top_k: 20
+  random_far_top_k: 30
+  # Legacy key kept for compatibility; real semantic settings live under retrieval.dense.
+  dense_model_name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  use_full_item_text: true
+  use_attribute_text: true
+  persist_indices: true
+  embedding_cache_dir: artifacts/retrieval/dense
+  dense_index_root: artifacts/retrieval/dense
+  index_path: artifacts/retrieval/hybrid_retriever.pkl
+  dense:
+    enabled: true
+    # real_dense never silently falls back. Use fallback_dense only for CPU smoke tests.
+    backend: real_dense
+    model_name: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    item_text_version: dense_v1
+    query_text_version: raw
+    top_k: 100
+    persist_index: true
+    rebuild_if_missing: true
+    artifact_root: artifacts/retrieval/dense
+    batch_size: 64
+    normalize_embeddings: true
+    device: null
+    require_gpu: false
+
+features:
+  text:
+    enabled: true
+    vectorizer: tfidf
+    fields: [query, full_item_text, normalized_attribute_text, color_value, material_value, style_value]
+    ngram_range: [1, 2]
+    max_features: 200000
+  attributes:
+    enabled: true
+    source_column: attributes
+  retrieval:
+    enabled: false
+    note: reserved_for_later_hard_negative_mining
+
+feature_engineering:
+  use_lexical_features: true
+  use_category_features: true
+  use_brand_features: true
+  use_attribute_features: true
+  use_gender_age_features: true
+  use_query_features: true
+  use_retrieval_features: true
+  use_semantic_features: true
+  use_metadata_features: true
+  retrieval_top_k: 100
+  semantic_model_name: tfidf_pairwise
+  canonical_attribute_keys: [color, material, style, size, pattern, fit, usage]
+
+pseudo_labeling_controlled:
+  mode: disabled
+  positive_threshold: 0.97
+  negative_threshold: 0.03
+  min_agreement: 0.66
+  min_margin: 0.40
+  require_support_signals: true
+  require_negative_conflict: true
+  model_probability_columns: []
+  max_pseudo_samples_warning: 50000
+error_analysis:
+  top_n: 200
+  output_dir: reports/errors
+tracking:
+  master_log_csv: reports/experiments/master_experiment_log.csv
+  master_log_md: reports/experiments/master_experiment_log.md
+
+experiment_engine:
+  artifact_root: artifacts/experiments
+  report_root: reports/experiments
+  registry_path: reports/experiments/experiment_registry.csv
+  require_oof: true
+  save_config_snapshot: true
+  save_test_predictions: true
+  versions:
+    data_version: train_model_input
+    negative_mining_version: negative_mining_config_v1
+    retrieval_version: retrieval_config_v1
+    feature_version: feature_engineering_config_v1
+    validation_version: validation_framework_config_v1
+threshold_optimization:
+  start: 0.05
+  end: 0.95
+  step: 0.01
+  segment_min_rows: 30
+  sensitivity_window: 0.03
+  allow_segment_threshold_strategy: false
+
+validation_framework:
+  splitter: term_group
+  alternative_splitters: [query_group, tail_aware]
+  model_type: tabular
+  n_folds: 5
+  seed: 42
+  seeds: [42]
+  negative_mode: fold_aware
+  threshold:
+    start: 0.05
+    end: 0.95
+    step: 0.01
+  segment_min_rows: 5
+  model: {}
+  features: {}
+
+modeling:
+  seed: 42
+  n_folds: 5
+  oof_first: true
+  artifact_root: artifacts
+  tabular:
+    seed: 42
+    n_folds: 5
+    model_type: hist_gradient_boosting
+    params:
+      learning_rate: 0.06
+      max_iter: 300
+      l2_regularization: 0.01
+    features:
+      use_lexical_features: true
+      use_category_features: true
+      use_brand_features: true
+      use_attribute_features: true
+      use_gender_age_features: true
+      use_query_features: true
+      use_retrieval_features: true
+      use_semantic_features: true
+      use_metadata_features: true
+  cross_encoder:
+    seed: 42
+    n_folds: 5
+    # Use sklearn_text for CPU smoke tests; set transformers for championship training.
+    backend: transformers
+    model_name: dbmdz/distilbert-base-turkish-cased
+    tokenizer_name: null
+    text_format_version: full_v1
+    max_length: 256
+    batch_size: 16
+    eval_batch_size: 32
+    learning_rate: 2.0e-5
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    num_train_epochs: 2
+    epochs: 2
+    dropout: 0.1
+    gradient_accumulation_steps: 1
+    fp16: true
+    early_stopping_patience: 2
+    save_total_limit: 2
+    load_best_model_at_end: true
+    metric_for_best_model: macro_f1
+    class_weighting: none
+    logging_steps: 50
+    allow_cpu: false
+    params:
+      C: 4.0
+      max_iter: 1000
+      max_features: 250000
+  ensemble:
+    enabled_models: [tabular, cross_encoder]
+    method: weighted_average
+    blend_weights:
+      tabular: 0.5
+      cross_encoder: 0.5
+    threshold_source: oof
+    use_stacking: false
+
+model:
+  family: sklearn
+  name: tfidf_logreg_pair_classifier
+  num_labels: 2
+  binary_threshold_default: 0.5
+
+training:
+  seed: 42
+  folds: 5
+  full_train_after_cv: true
+
+validation:
+  metric: macro_f1
+  threshold_tuning: true
+  split: stratified_kfold
+
+ensemble:
+  enabled: false
+  note: reserved_for_later_war_mode_prompts
+
+forbidden_in_kaggle:
+  multiclass_3_label_logic: false
+  deployment_api: false
+  onnx_export: false
+  quantization: false
+  explainability_ui: false
+  demo_fallback_model: false

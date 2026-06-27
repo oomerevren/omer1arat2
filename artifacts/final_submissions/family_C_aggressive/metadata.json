@@ -1,0 +1,15 @@
+{
+  "family_name": "family_C_aggressive",
+  "display_name": "Semantic / Recall / Aggressive",
+  "risk_label": "semantic_aggressive",
+  "purpose": "Semantic/CE/dense challenger if risk flags are low",
+  "models_used": [],
+  "blend_weights": {},
+  "threshold": null,
+  "source_oof_reports": [],
+  "experiment_ids": [],
+  "created_at": "2026-06-26T19:46:26.264777+00:00",
+  "status": "not_ready_no_oof_or_test_predictions",
+  "notes": "Official OOF/test prediction artefacts are required to materialize submission.csv.",
+  "submission_path": ""
+}

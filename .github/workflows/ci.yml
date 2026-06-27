@@ -1,0 +1,57 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    # Aşama 5.5 — GitHub Secrets (HF_TOKEN, MLFLOW_URI)
+    # Ayarlar: Settings → Secrets and variables → Actions → New repository secret
+    - name: Install dependencies
+      env:
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        MLFLOW_URI: ${{ secrets.MLFLOW_URI }}
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Import smoke test
+      run: |
+        python - <<'PY'
+        from src.training.trainer import run_experiment
+        from src.deployment.api import app
+        from src.models.cross_encoder import CrossEncoderModel
+        from src.models.ensemble import EnsembleModel
+        print("TÜM IMPORT OK")
+        PY
+
+    - name: Sentetik metrik / kanıtsız skor kontrolü
+      run: |
+        set -euo pipefail
+        if grep -RInE "F1[^\n]*(0\.(85|86|87|88|89|9[0-9])|>=\s*0\.[0-9]+)|Macro F1 Score.*HEDEF|QPS Capacity.*HEDEF|Inference Latency.*HEDEF" \
+          --include="*.md" --include="*.csv" --include="*.json" \
+          README.md docs/ reports/ experiments/ 2>/dev/null | grep -v "_DEMO"; then
+          echo "Kanıtsız metrik bulundu. Gerçek veri sonrası doldurulacak şekilde değiştir."
+          exit 1
+        fi
+
+    - name: Run Tests (strict)
+      run: |
+        pytest tests/ -v --tb=short
+
+    - name: Check Scripts Syntax
+      run: |
+        python -m py_compile scripts/*.py
+        python -m compileall -q src

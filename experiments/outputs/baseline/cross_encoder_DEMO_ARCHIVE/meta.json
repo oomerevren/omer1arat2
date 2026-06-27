@@ -1,0 +1,5 @@
+{
+  "model_name": "dbmdz/bert-base-turkish-cased",
+  "num_labels": 3,
+  "max_length": 256
+}

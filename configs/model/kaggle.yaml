@@ -1,0 +1,31 @@
+# DEPRECATED: use configs/kaggle/war_mode.yaml for Kaggle War Mode. This legacy config is not used by scripts_kaggle/.
+# Kaggle Datathon modu — 2 sınıflı binary classification
+inherit: "../base_config.yaml"
+
+experiment:
+  name: "kaggle_baseline"
+  mode: "kaggle"
+
+model:
+  type: "cross_encoder"
+  cross_encoder:
+    model_name: "dbmdz/distilbert-base-turkish-cased"
+    num_labels: 2
+    max_length: 256
+
+data:
+  negative_mining:
+    enabled: true
+    negatives_per_positive: 5
+
+training:
+  num_epochs: 2
+  batch_size: 32
+  learning_rate: 3.0e-5
+  run_cv_before_train: false
+
+distillation:
+  enabled: true
+
+pseudo_labeling:
+  enabled: false

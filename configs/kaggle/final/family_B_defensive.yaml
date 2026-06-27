@@ -1,0 +1,48 @@
+family_name: family_B_defensive
+display_name: Class0 / Precision / Defensive
+risk_label: private_defensive
+purpose: Protect irrelevant class and reduce false positives
+models_used: []
+blend_weights: {}
+threshold: null
+source_oof_reports: []
+experiment_ids: []
+created_at: '2026-06-26T19:46:26.263577+00:00'
+status: not_ready_no_oof_or_test_predictions
+notes: Official OOF/test prediction artefacts are required to materialize submission.csv.
+submission_path: ''
+final_mode: true
+frozen: true
+schema_version: final_family_freeze_v1
+shared_final_base: configs/kaggle/final/shared_final_base.yaml
+frozen_at: '2026-06-26T19:51:37.178249+00:00'
+change_policy: Do not edit directly. Create configs/kaggle/experiments/<name>.yaml,
+  rerun validation, then promote via freeze script.
+artifact_paths:
+  legacy_family_artifact_dir: artifacts/final_submissions/family_B_defensive
+  standard_family_artifact_dir: artifacts/final/families/family_B_defensive
+  standard_submission_path: artifacts/final/submissions/family_B_defensive_submission.csv
+  metadata_json: artifacts/final_submissions/family_B_defensive/metadata.json
+submission_output_path: artifacts/final/submissions/family_B_defensive_submission.csv
+source_metadata:
+  family_name: family_B_defensive
+  display_name: Class0 / Precision / Defensive
+  risk_label: private_defensive
+  purpose: Protect irrelevant class and reduce false positives
+  models_used: []
+  blend_weights: {}
+  threshold: null
+  source_oof_reports: []
+  experiment_ids: &id001 []
+  created_at: '2026-06-26T19:46:26.263577+00:00'
+  status: not_ready_no_oof_or_test_predictions
+  notes: Official OOF/test prediction artefacts are required to materialize submission.csv.
+  submission_path: ''
+ensemble_method: weighted_average
+splitter_reference: term_group_default_private_safe
+source_experiment_ids: *id001
+used_data_version: official_kaggle_data_contract_v1
+negative_mining_version: war_mode_negative_mining_config
+retrieval_version: war_mode_retrieval_config
+feature_version: war_mode_feature_engineering_config
+validation_version: term_group_oof_private_lb_simulation

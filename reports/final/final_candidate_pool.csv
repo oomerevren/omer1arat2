@@ -1,0 +1,4 @@
+candidate_id,experiment_id,experiment_name,model_family,data_feature_negative_versions,OOF macro-F1,class0 F1,class1 F1,threshold,seed_std,public_lb_score,risk_label,strategic_status,splitter,oof_path,test_pred_path,selection_score,selection_status
+planned_tabular_balanced,,planned_tabular_balanced,tabular,Balanced tabular OOF candidate required,,,,,,,needs_real_oof,not_ready,term_group,,,-1.0,not_ready_no_oof
+planned_class0_defensive,,planned_class0_defensive,tabular,Class0/precision defensive candidate required,,,,,,,needs_real_oof,not_ready,term_group,,,-1.0,not_ready_no_oof
+planned_semantic_aggressive,,planned_semantic_aggressive,dense_enhanced,Dense/CE semantic challenger candidate required,,,,,,,needs_real_oof,high_risk_experimental,term_group,,,-1.0,not_ready_no_oof

@@ -1,0 +1,26 @@
+# DistilBERTurk - Hızlı deneysel model
+inherit: "../base_config.yaml"
+
+experiment:
+  name: "distilberturk_baseline"
+  tags:
+    model_family: "distilbert"
+
+model:
+  type: "cross_encoder"
+  cross_encoder:
+    model_name: "dbmdz/distilbert-base-turkish-cased"
+    max_length: 256
+    num_labels: 3
+
+training:
+  num_epochs: 5
+  batch_size: 32
+  learning_rate: 5.0e-5
+
+distillation:
+  enabled: false  # Kendisi zaten öğrenci model boyutunda
+
+quantization:
+  enabled: true
+  method: "dynamic"

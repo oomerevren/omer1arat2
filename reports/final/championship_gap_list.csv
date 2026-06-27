@@ -1,0 +1,16 @@
+gap_id,component,description,severity,private_lb_impact,submission_day_impact,effort_estimate,owner,status,recommended_fix
+GAP-001,retrieval,official retrieval evaluation not run in this workspace,major,orta,düşük,M/L,modeling/ops team,open,Run build_retrieval_index + evaluate_dense_retrieval on official items/queries.
+GAP-002,dense retrieval,real dense model/index not materialized in workspace | public/OOF dense lift unknown,major,yüksek,düşük,M/L,modeling/ops team,open,Build real dense index with official items; compare dense_v1/v2 and BM25 overlap before final use.
+GAP-003,negative mining,fold-aware negative rebuild not fully proven on official OOF,major,yüksek,düşük,M/L,modeling/ops team,open,Use fold-aware negative builds for final validation; inspect uncertain/skipped rates.
+GAP-004,semantic hard negatives,semantic hard negative OOF gain unproven | false negative risk remains,major,yüksek,düşük,M/L,modeling/ops team,open,Keep dense hard negatives out of default unless ablation shows class0-safe lift.
+GAP-005,tabular modeling,no official OOF metrics in workspace,major,yüksek,düşük,M/L,modeling/ops team,open,Run official OOF; keep tabular as baseline/family A backbone until CE proves lift.
+GAP-006,transformer cross-encoder,real transformer fine-tuning not run here | operational GPU/dependency risk,major,yüksek,orta,M/L,modeling/ops team,open,Run GPU OOF with backend=transformers; compare against sklearn_text and tabular before final weighting.
+GAP-007,ensemble,"no ready OOF candidates, no prediction-correlation evidence",major,yüksek,orta,M/L,modeling/ops team,open,Materialize OOF/test preds; reject highly correlated redundant blends.
+GAP-008,validation framework,public/OOF correlation has 0 public points,major,çok yüksek,düşük,M/L,modeling/ops team,open,Run splitter ablation on official data and track public/OOF correlation over submissions.
+GAP-009,OOF engine,completed ablation rows=0/59,major,çok yüksek,düşük,M/L,modeling/ops team,open,Complete official OOF ablations for selected final candidates.
+GAP-010,threshold optimization,threshold stability not measured on real final OOF,major,yüksek,orta,M/L,modeling/ops team,open,Use OOF global/stable midpoint; never tune directly to public LB.
+GAP-011,error analysis,requires real OOF errors to populate final insights,major,orta,düşük,M/L,modeling/ops team,open,Run after first official OOF; inspect FP/FN class0-heavy segments.
+GAP-012,pseudo labeling,not validated as final lift,major,orta-yüksek,düşük,M/L,modeling/ops team,open,Keep disabled unless late ablation proves safe; avoid final unproven pseudo labels.
+GAP-013,public/OOF/private-LB strategy,no public LB history yet,major,çok yüksek,orta,M/L,modeling/ops team,open,Add public LB entries after every upload; do not over-infer under n<3.
+GAP-014,reproducibility,full dry-run impossible without official data/test predictions,major,orta,yüksek,M/L,modeling/ops team,open,Run final dry-run after official artefacts arrive; archive command outputs.
+GAP-015,actual final submissions,family submission.csv files not materialized | validator reports pending,critical,yüksek,çok yüksek,M/L,modeling/ops team,open,Generate official family submissions from real test predictions and rerun release validation until release_ready=true.

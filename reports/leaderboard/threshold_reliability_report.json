@@ -1,0 +1,6 @@
+{
+  "n_threshold_rows": 59,
+  "fragile_count": 0,
+  "extreme_threshold_count": 0,
+  "recommendation": "Prefer OOF global best or stable midpoint. Do not tune threshold directly to public LB; segment thresholds are analysis-only unless stable across seeds."
+}

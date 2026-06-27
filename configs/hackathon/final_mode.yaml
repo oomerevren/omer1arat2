@@ -1,0 +1,27 @@
+# TEKNOFEST 2026 E-Ticaret — Hackathon / Final Mode
+# Not safe for Kaggle scripts. This mode may use 3-class labels, serving,
+# speed optimizations, explainability and demo systems.
+
+mode: hackathon_final_mode
+
+problem:
+  type: multiclass_or_service_relevance
+  num_classes: 3
+
+model:
+  num_labels: 3
+  serving_ready: true
+
+paths:
+  legacy_src: src/
+  hackathon_src: src_hackathon/
+  scripts: scripts_hackathon/
+
+features:
+  deployment_api: true
+  onnx_export: true
+  quantization: true
+  explainability_ui: true
+  demo_fallback_model: true
+
+warning: "Do not use this config with scripts_kaggle/*.py"

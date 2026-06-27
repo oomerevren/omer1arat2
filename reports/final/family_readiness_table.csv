@@ -1,0 +1,4 @@
+family_name,role,status,risk_label,artifact_status,submission_exists,open_gap
+family_A_balanced,default balanced,yellow,safest_balanced,not_ready_no_oof_or_test_predictions,False,metadata exists but validated submission.csv pending
+family_B_defensive,class0 defensive,yellow,private_defensive,not_ready_no_oof_or_test_predictions,False,metadata exists but validated submission.csv pending
+family_C_aggressive,semantic aggressive,yellow,semantic_aggressive,not_ready_no_oof_or_test_predictions,False,metadata exists but validated submission.csv pending

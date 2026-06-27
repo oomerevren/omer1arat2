@@ -1,0 +1,15 @@
+# Model Family Drift Summary
+
+Do not rank families from public LB unless n_public is sufficient; use OOF/class0/seed stability first.
+
+## Family comparison CSV preview
+
+model_family,n_experiments,n_public,oof_mean,class0_mean,public_minus_oof_mean,public_minus_oof_std,public_optimistic_count,dense_or_retrieval_risk_count
+dense_enhanced,15,0,,,,,0,15
+ensemble,4,0,,,,,0,1
+retrieval_heavy,7,0,,,,,0,7
+sklearn_text,1,0,,,,,0,0
+tabular,25,0,,,,,0,0
+transformer_ce,1,0,,,,,0,0
+unknown,6,0,,,,,0,0
+

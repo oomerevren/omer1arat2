@@ -1,0 +1,4 @@
+family_name,risk_label,risk_flags,notes
+family_A_balanced,safest_balanced,DEFAULT_SAFE|PUBLIC_GAIN_NOT_REQUIRED|MISSING_SUBMISSION_ARTEFACT|REQUIRES_REAL_TEST_PREDICTIONS,Official OOF/test prediction artefacts are required to materialize submission.csv.
+family_B_defensive,private_defensive,RECALL_LOSS_MONITOR|THRESHOLD_HIGH_MONITOR|MISSING_SUBMISSION_ARTEFACT|REQUIRES_REAL_TEST_PREDICTIONS,Official OOF/test prediction artefacts are required to materialize submission.csv.
+family_C_aggressive,semantic_aggressive,DENSE_ARTIFACT_RISK|PUBLIC_OPTIMISM_MONITOR|MISSING_SUBMISSION_ARTEFACT|REQUIRES_REAL_TEST_PREDICTIONS,Official OOF/test prediction artefacts are required to materialize submission.csv.

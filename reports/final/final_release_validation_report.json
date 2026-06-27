@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-06-26T19:51:37.359745+00:00",
+  "release_ready": false,
+  "metadata_lock_ready": true,
+  "errors": [],
+  "warnings": [
+    "family_A_balanced: submission.csv not materialized yet; requires official test predictions",
+    "family_B_defensive: submission.csv not materialized yet; requires official test predictions",
+    "family_C_aggressive: submission.csv not materialized yet; requires official test predictions"
+  ],
+  "family_checks": {
+    "family_A_balanced": {
+      "config_path": "configs/kaggle/final/family_A_balanced.yaml",
+      "metadata_path": "artifacts/final/families/family_A_balanced/metadata.json",
+      "submission_path": "artifacts/final/submissions/family_A_balanced_submission.csv",
+      "errors": [],
+      "warnings": [
+        "submission.csv not materialized yet; requires official test predictions"
+      ],
+      "release_ready": false
+    },
+    "family_B_defensive": {
+      "config_path": "configs/kaggle/final/family_B_defensive.yaml",
+      "metadata_path": "artifacts/final/families/family_B_defensive/metadata.json",
+      "submission_path": "artifacts/final/submissions/family_B_defensive_submission.csv",
+      "errors": [],
+      "warnings": [
+        "submission.csv not materialized yet; requires official test predictions"
+      ],
+      "release_ready": false
+    },
+    "family_C_aggressive": {
+      "config_path": "configs/kaggle/final/family_C_aggressive.yaml",
+      "metadata_path": "artifacts/final/families/family_C_aggressive/metadata.json",
+      "submission_path": "artifacts/final/submissions/family_C_aggressive_submission.csv",
+      "errors": [],
+      "warnings": [
+        "submission.csv not materialized yet; requires official test predictions"
+      ],
+      "release_ready": false
+    }
+  },
+  "manifest_status": "locked_metadata_pending_real_submissions"
+}

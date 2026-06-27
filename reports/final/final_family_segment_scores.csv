@@ -1,0 +1,31 @@
+family_name,segment,macro_f1,class0_f1,class1_f1,strength_note,weakness_note,status
+family_A_balanced,short_query,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,brand_heavy,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,attribute_heavy,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,category_heavy,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,same_category_hard,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,same_brand,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,dense_hard,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,gender_cue,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,age_cue,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_A_balanced,unknown_metadata,,,,balanced across short/brand/attribute segments,no known segment edge without OOF,requires_family_oof
+family_B_defensive,short_query,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,brand_heavy,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,attribute_heavy,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,category_heavy,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,same_category_hard,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,same_brand,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,dense_hard,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,gender_cue,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,age_cue,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_B_defensive,unknown_metadata,,,,attribute/gender/age conflict and class0-heavy segments,may under-recall semantic positives,requires_family_oof
+family_C_aggressive,short_query,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,brand_heavy,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,attribute_heavy,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,category_heavy,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,same_category_hard,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,same_brand,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,dense_hard,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,gender_cue,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,age_cue,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof
+family_C_aggressive,unknown_metadata,,,,semantic/long-tail/dense-hard recall segments,higher false-positive/private risk,requires_family_oof

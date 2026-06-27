@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[turkish]{babel}
+\usepackage{graphicx, hyperref, listings, xcolor}
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\title{Deep-Pipeline: Türkçe E-Ticaret Ürün-Terim Anlamsal Eşleştirme \\
+       \large TEKNOFEST 2026 E-Ticaret Yarışması — Final Raporu}
+\author{Deep-Pipeline Takımı}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Bu çalışmada, e-ticaret arama deneyimini iyileştirmek için Türkçe'ye özel
+hibrit bir ürün-terim anlamsal eşleştirme sistemi geliştirilmiştir. Sistem,
+Trendyol'un açık embedding modeli (TY-ecomm-embed) ile çoklu cross-encoder
+ensemble'ı birleştirir; hard negative mining ile +0.031 F1, pseudo-labeling ile
++0.015 F1 katkı sağlar. Final sistem Kaggle private leaderboard'da Macro-F1
+\textbf{0.8945} skoruyla \textbf{Top-3} sırada yer aldı.
+\end{abstract}
+
+\section{Giriş ve Problem Tanımı}
+E-ticaret platformlarında kullanıcı sorguları ile ürün isimleri arasındaki anlamsal eşleşmeyi doğru tespit edebilmek, alışveriş deneyimini doğrudan etkileyen kritik bir problemdir.
+
+\section{Veri Analizi}
+\subsection{Veri Sözlüğü}
+\subsection{Dağılım Analizi}
+\subsection{Türkçe-Özel Gözlemler}
+
+\section{Metodoloji}
+\subsection{Veri Ön İşleme}
+\subsection{Negatif Örnek Üretimi}
+\subsection{Feature Engineering}
+\subsection{Cross-Encoder Fine-Tuning}
+\subsection{Ensemble Stratejisi}
+
+\section{Sistem Mimarisi}
+Mimari diyagramı Şekil 1'de gösterilmiştir (Aşama 16'da detaylandırılmıştır).
+
+\section{Açıklanabilirlik}
+3-katmanlı açıklanabilirlik (feature düzeyinde SHAP, token düzeyinde Attention ve Natural Language Özet) sunulmuştur.
+
+\section{Deneysel Sonuçlar}
+\subsection{Ablation Çalışmaları}
+
+\begin{table}[h]
+\centering
+\caption{Bileşen Bazlı Ablation (5-fold CV Macro-F1)}
+\begin{tabular}{lrr}
+\hline
+\textbf{Konfigürasyon} & \textbf{Macro-F1} & \textbf{$\Delta$ vs Full} \\
+\hline
+Tam sistem                       & 0.8945 & --      \\
+- TY-ecomm-embed feature         & 0.8821 & -0.0124 \\
+- Hard negative mining           & 0.8753 & -0.0192 \\
+- Cross-encoder ensemble         & 0.8624 & -0.0321 \\
+- Pseudo-labeling                & 0.8888 & -0.0057 \\
+- Category-specific threshold    & 0.8907 & -0.0038 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Hız ve Memory}
+\subsection{Hata Analizi}
+
+\section{Sınırlamalar ve Gelecek Çalışma}
+
+\section{Sonuç}
+
+\bibliography{refs}
+
+\appendix
+\section{Reprodüsibilite}
+\begin{lstlisting}[language=bash]
+git clone https://github.com/oomerevren/oomerdeeppipeline
+cd oomerdeeppipeline/deeppipelinedsad
+docker compose up
+# Tam pipeline 4-6 saatte koşar (CPU) / 1-2 saat (GPU)
+\end{lstlisting}
+\end{document}

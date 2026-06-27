@@ -1,0 +1,966 @@
+[
+  {
+    "ablation_id": "feat_all_features",
+    "experiment_name": "tab_all_features",
+    "category": "feature",
+    "changed_component": "all_features",
+    "variant_description": "All tabular feature groups enabled",
+    "toggles": {
+      "feature_mode": "all"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_lexical",
+    "experiment_name": "tab_no_lexical",
+    "category": "feature",
+    "changed_component": "use_lexical_features",
+    "variant_description": "All features except use_lexical_features",
+    "toggles": {
+      "feature_disable": [
+        "use_lexical_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_category",
+    "experiment_name": "tab_no_category",
+    "category": "feature",
+    "changed_component": "use_category_features",
+    "variant_description": "All features except use_category_features",
+    "toggles": {
+      "feature_disable": [
+        "use_category_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_brand",
+    "experiment_name": "tab_no_brand",
+    "category": "feature",
+    "changed_component": "use_brand_features",
+    "variant_description": "All features except use_brand_features",
+    "toggles": {
+      "feature_disable": [
+        "use_brand_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_attribute",
+    "experiment_name": "tab_no_attribute",
+    "category": "feature",
+    "changed_component": "use_attribute_features",
+    "variant_description": "All features except use_attribute_features",
+    "toggles": {
+      "feature_disable": [
+        "use_attribute_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_gender_age",
+    "experiment_name": "tab_no_gender_age",
+    "category": "feature",
+    "changed_component": "use_gender_age_features",
+    "variant_description": "All features except use_gender_age_features",
+    "toggles": {
+      "feature_disable": [
+        "use_gender_age_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_query_features",
+    "experiment_name": "tab_no_query_features",
+    "category": "feature",
+    "changed_component": "use_query_features",
+    "variant_description": "All features except use_query_features",
+    "toggles": {
+      "feature_disable": [
+        "use_query_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_retrieval",
+    "experiment_name": "tab_no_retrieval",
+    "category": "feature",
+    "changed_component": "use_retrieval_features",
+    "variant_description": "All features except use_retrieval_features",
+    "toggles": {
+      "feature_disable": [
+        "use_retrieval_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_semantic",
+    "experiment_name": "tab_no_semantic",
+    "category": "feature",
+    "changed_component": "use_semantic_features",
+    "variant_description": "All features except use_semantic_features",
+    "toggles": {
+      "feature_disable": [
+        "use_semantic_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_no_metadata",
+    "experiment_name": "tab_no_metadata",
+    "category": "feature",
+    "changed_component": "use_metadata_features",
+    "variant_description": "All features except use_metadata_features",
+    "toggles": {
+      "feature_disable": [
+        "use_metadata_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_only_core_features",
+    "experiment_name": "tab_only_core_features",
+    "category": "feature",
+    "changed_component": "only_core_features",
+    "variant_description": "Only feature groups: use_lexical_features, use_category_features, use_brand_features, use_attribute_features, use_gender_age_features",
+    "toggles": {
+      "feature_only": [
+        "use_lexical_features",
+        "use_category_features",
+        "use_brand_features",
+        "use_attribute_features",
+        "use_gender_age_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_only_lexical_category_brand",
+    "experiment_name": "tab_only_lexical_category_brand",
+    "category": "feature",
+    "changed_component": "only_lexical_category_brand",
+    "variant_description": "Only feature groups: use_lexical_features, use_category_features, use_brand_features",
+    "toggles": {
+      "feature_only": [
+        "use_lexical_features",
+        "use_category_features",
+        "use_brand_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_only_attribute_gender_age",
+    "experiment_name": "tab_only_attribute_gender_age",
+    "category": "feature",
+    "changed_component": "only_attribute_gender_age",
+    "variant_description": "Only feature groups: use_attribute_features, use_gender_age_features",
+    "toggles": {
+      "feature_only": [
+        "use_attribute_features",
+        "use_gender_age_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_lexical_plus_retrieval",
+    "experiment_name": "tab_lexical_plus_retrieval",
+    "category": "feature",
+    "changed_component": "lexical_plus_retrieval",
+    "variant_description": "Only feature groups: use_lexical_features, use_retrieval_features",
+    "toggles": {
+      "feature_only": [
+        "use_lexical_features",
+        "use_retrieval_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "feat_attribute_plus_semantic",
+    "experiment_name": "tab_attribute_plus_semantic",
+    "category": "feature",
+    "changed_component": "attribute_plus_semantic",
+    "variant_description": "Only feature groups: use_attribute_features, use_gender_age_features, use_semantic_features",
+    "toggles": {
+      "feature_only": [
+        "use_attribute_features",
+        "use_gender_age_features",
+        "use_semantic_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "neg_easy_only",
+    "experiment_name": "tab_easy_only_neg",
+    "category": "negative",
+    "changed_component": "easy",
+    "variant_description": "Only random/easy negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 2,
+        "same_category": 0,
+        "same_brand": 0,
+        "lexical": 0,
+        "attribute_conflict": 0,
+        "dense": 0
+      }
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_easy_plus_same_category",
+    "experiment_name": "tab_easy_plus_same_category_neg",
+    "category": "negative",
+    "changed_component": "same_category",
+    "variant_description": "Easy + same-category negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 2,
+        "same_brand": 0,
+        "lexical": 0,
+        "attribute_conflict": 0,
+        "dense": 0
+      }
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_easy_plus_same_brand",
+    "experiment_name": "tab_easy_plus_same_brand_neg",
+    "category": "negative",
+    "changed_component": "same_brand",
+    "variant_description": "Easy + same-brand negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 0,
+        "same_brand": 2,
+        "lexical": 0,
+        "attribute_conflict": 0,
+        "dense": 0
+      }
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_easy_plus_attribute_conflict",
+    "experiment_name": "tab_easy_plus_attribute_conflict_neg",
+    "category": "negative",
+    "changed_component": "attribute_conflict",
+    "variant_description": "Easy + attribute-conflict negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 0,
+        "same_brand": 0,
+        "lexical": 0,
+        "attribute_conflict": 2,
+        "dense": 0
+      }
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_easy_plus_lexical_confusing",
+    "experiment_name": "tab_easy_plus_lexical_confusing_neg",
+    "category": "negative",
+    "changed_component": "lexical_confusing",
+    "variant_description": "Easy + lexical confusing negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 0,
+        "same_brand": 0,
+        "lexical": 2,
+        "attribute_conflict": 0,
+        "dense": 0
+      }
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_easy_plus_dense_hard",
+    "experiment_name": "tab_easy_plus_dense_hard_neg",
+    "category": "negative",
+    "changed_component": "dense_hard",
+    "variant_description": "Easy + dense semantic hard negatives",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 0,
+        "same_brand": 0,
+        "lexical": 0,
+        "attribute_conflict": 0,
+        "dense": 2
+      },
+      "use_dense_pool": true
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_full_negative_mix",
+    "experiment_name": "tab_full_negative_mix_neg",
+    "category": "negative",
+    "changed_component": "full_mix",
+    "variant_description": "Full negative mix including dense",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 1,
+        "same_brand": 1,
+        "lexical": 1,
+        "attribute_conflict": 1,
+        "dense": 2
+      },
+      "use_dense_pool": true
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_full_negative_mix_without_dense",
+    "experiment_name": "tab_full_negative_mix_without_dense_neg",
+    "category": "negative",
+    "changed_component": "full_mix_no_dense",
+    "variant_description": "Full negative mix without dense",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 1,
+        "same_brand": 1,
+        "lexical": 1,
+        "attribute_conflict": 1,
+        "dense": 0
+      },
+      "use_dense_pool": false
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_strict_false_negative_filter",
+    "experiment_name": "tab_strict_false_negative_filter_neg",
+    "category": "negative",
+    "changed_component": "false_negative_filter",
+    "variant_description": "Strict false-negative filter",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 1,
+        "same_brand": 1,
+        "lexical": 1,
+        "attribute_conflict": 1,
+        "dense": 1
+      },
+      "filter_profile": "strict",
+      "use_dense_pool": true
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "neg_moderate_false_negative_filter",
+    "experiment_name": "tab_moderate_false_negative_filter_neg",
+    "category": "negative",
+    "changed_component": "false_negative_filter",
+    "variant_description": "Moderate false-negative filter",
+    "toggles": {
+      "negative_counts": {
+        "easy": 1,
+        "same_category": 1,
+        "same_brand": 1,
+        "lexical": 1,
+        "attribute_conflict": 1,
+        "dense": 1
+      },
+      "filter_profile": "moderate",
+      "use_dense_pool": true
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "ret_no_retrieval_features",
+    "experiment_name": "tab_no_retrieval_features",
+    "category": "retrieval",
+    "changed_component": "retrieval_features",
+    "variant_description": "No retrieval-derived features",
+    "toggles": {
+      "feature_disable": [
+        "use_retrieval_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_bm25_only",
+    "experiment_name": "tab_bm25_only_retrieval",
+    "category": "retrieval",
+    "changed_component": "bm25_only",
+    "variant_description": "BM25 retrieval features only",
+    "toggles": {
+      "retrieval_mode": "bm25_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_dense_only",
+    "experiment_name": "tab_dense_only_retrieval",
+    "category": "retrieval",
+    "changed_component": "dense_only",
+    "variant_description": "Dense retrieval features only",
+    "toggles": {
+      "retrieval_mode": "dense_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_hybrid",
+    "experiment_name": "tab_hybrid_retrieval",
+    "category": "retrieval",
+    "changed_component": "hybrid",
+    "variant_description": "BM25 + dense hybrid retrieval features",
+    "toggles": {
+      "retrieval_mode": "hybrid"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_rank_off",
+    "experiment_name": "tab_retrieval_rank_off",
+    "category": "retrieval",
+    "changed_component": "rank_features",
+    "variant_description": "Retrieval score features without rank signals",
+    "toggles": {
+      "retrieval_feature_submode": "score_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_score_off",
+    "experiment_name": "tab_retrieval_score_off",
+    "category": "retrieval",
+    "changed_component": "score_features",
+    "variant_description": "Retrieval rank features without score signals",
+    "toggles": {
+      "retrieval_feature_submode": "rank_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "ret_overlap_off",
+    "experiment_name": "tab_retrieval_overlap_off",
+    "category": "retrieval",
+    "changed_component": "overlap_agreement",
+    "variant_description": "Retrieval features without overlap/agreement flags",
+    "toggles": {
+      "retrieval_feature_submode": "no_overlap"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "sig_no_attribute_conflict",
+    "experiment_name": "tab_no_attribute_conflict",
+    "category": "feature",
+    "changed_component": "attribute_conflict_signals",
+    "variant_description": "Attribute exact/conflict signals off",
+    "toggles": {
+      "special_disable": [
+        "attribute_conflict"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "sig_no_gender_conflict",
+    "experiment_name": "tab_no_gender_conflict",
+    "category": "feature",
+    "changed_component": "gender_conflict",
+    "variant_description": "Gender conflict signals off",
+    "toggles": {
+      "feature_disable": [
+        "use_gender_age_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "sig_no_age_conflict",
+    "experiment_name": "tab_no_age_conflict",
+    "category": "feature",
+    "changed_component": "age_conflict",
+    "variant_description": "Age conflict signals off",
+    "toggles": {
+      "feature_disable": [
+        "use_gender_age_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "sig_no_brand_contradiction",
+    "experiment_name": "tab_no_brand_contradiction",
+    "category": "feature",
+    "changed_component": "brand_contradiction",
+    "variant_description": "Brand contradiction/exact signals off",
+    "toggles": {
+      "feature_disable": [
+        "use_brand_features"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "sig_no_size_number",
+    "experiment_name": "tab_no_size_number",
+    "category": "feature",
+    "changed_component": "size_number",
+    "variant_description": "Size/number signals off",
+    "toggles": {
+      "special_disable": [
+        "size_number"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_tabular_baseline",
+    "experiment_name": "tabular_baseline",
+    "category": "model",
+    "changed_component": "tabular",
+    "variant_description": "Tabular model only",
+    "toggles": {
+      "model_type": "tabular"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_sklearn_text_baseline",
+    "experiment_name": "sklearn_text_baseline",
+    "category": "model",
+    "changed_component": "sklearn_text",
+    "variant_description": "Sklearn TF-IDF pair-text cross-encoder baseline",
+    "toggles": {
+      "model_type": "cross_encoder",
+      "ce_backend": "sklearn_text"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_transformer_ce_best",
+    "experiment_name": "transformer_ce_best",
+    "category": "model",
+    "changed_component": "transformer_ce",
+    "variant_description": "Real transformer cross-encoder; requires GPU/deps",
+    "toggles": {
+      "model_type": "cross_encoder",
+      "ce_backend": "transformers"
+    },
+    "risk_note": "",
+    "requires_transformer": true,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_tabular_plus_sklearn_text",
+    "experiment_name": "tabular_plus_sklearn_text",
+    "category": "model",
+    "changed_component": "blend_tab_sklearn",
+    "variant_description": "Blend tabular + sklearn_text OOF",
+    "toggles": {
+      "blend": [
+        "tabular",
+        "sklearn_text"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_tabular_plus_transformer",
+    "experiment_name": "tabular_plus_transformer",
+    "category": "model",
+    "changed_component": "blend_tab_transformer",
+    "variant_description": "Blend tabular + transformer OOF",
+    "toggles": {
+      "blend": [
+        "tabular",
+        "transformer"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": true,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_tabular_plus_transformer_plus_dense",
+    "experiment_name": "tabular_plus_transformer_plus_dense_signals",
+    "category": "model",
+    "changed_component": "blend_tab_transformer_dense",
+    "variant_description": "Tabular dense signals + transformer blend",
+    "toggles": {
+      "blend": [
+        "tabular_dense",
+        "transformer"
+      ]
+    },
+    "risk_note": "",
+    "requires_transformer": true,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_best_single",
+    "experiment_name": "best_single_model",
+    "category": "model",
+    "changed_component": "best_single",
+    "variant_description": "Select best single model from completed OOFs",
+    "toggles": {
+      "selection": "best_single"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "model_best_balanced_blend",
+    "experiment_name": "best_balanced_blend",
+    "category": "model",
+    "changed_component": "best_blend",
+    "variant_description": "Select best balanced blend from completed OOFs",
+    "toggles": {
+      "selection": "best_blend"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_fixed_05",
+    "experiment_name": "threshold_fixed_05",
+    "category": "threshold",
+    "changed_component": "fixed_05",
+    "variant_description": "Fixed threshold 0.5",
+    "toggles": {
+      "threshold_strategy": "fixed_05"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_oof_best",
+    "experiment_name": "threshold_oof_best",
+    "category": "threshold",
+    "changed_component": "oof_best",
+    "variant_description": "OOF best global threshold",
+    "toggles": {
+      "threshold_strategy": "oof_best"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_class0_protective",
+    "experiment_name": "threshold_class0_protective",
+    "category": "threshold",
+    "changed_component": "class0_protective",
+    "variant_description": "Higher threshold to protect class 0",
+    "toggles": {
+      "threshold_strategy": "class0_protective"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_class1_protective",
+    "experiment_name": "threshold_class1_protective",
+    "category": "threshold",
+    "changed_component": "class1_protective",
+    "variant_description": "Lower threshold to protect class 1",
+    "toggles": {
+      "threshold_strategy": "class1_protective"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_stable_midpoint",
+    "experiment_name": "threshold_stable_midpoint",
+    "category": "threshold",
+    "changed_component": "stable_midpoint",
+    "variant_description": "Midpoint of stable near-optimal threshold plateau",
+    "toggles": {
+      "threshold_strategy": "stable_midpoint"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "thr_segment_analysis",
+    "experiment_name": "threshold_segment_analysis_only",
+    "category": "threshold",
+    "changed_component": "segment_threshold",
+    "variant_description": "Segment threshold analysis only, not final decision",
+    "toggles": {
+      "threshold_strategy": "segment_analysis_only"
+    },
+    "risk_note": "Segment thresholds are high overfit risk unless validated by private-LB simulation.",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_no_dense_anywhere",
+    "experiment_name": "no_dense_anywhere",
+    "category": "dense",
+    "changed_component": "dense_off",
+    "variant_description": "Dense retrieval/negatives/features disabled",
+    "toggles": {
+      "dense_mode": "off"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": false,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_features_only",
+    "experiment_name": "dense_features_only",
+    "category": "dense",
+    "changed_component": "dense_features",
+    "variant_description": "Dense retrieval features on, dense negatives off",
+    "toggles": {
+      "dense_mode": "features_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_hard_negatives_only",
+    "experiment_name": "dense_hard_negatives_only",
+    "category": "dense",
+    "changed_component": "dense_negatives",
+    "variant_description": "Dense hard negatives on, dense feature group off",
+    "toggles": {
+      "dense_mode": "negatives_only"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "dense_features_plus_negatives",
+    "experiment_name": "dense_features_plus_dense_negatives",
+    "category": "dense",
+    "changed_component": "dense_features_and_negatives",
+    "variant_description": "Dense retrieval features and dense hard negatives together",
+    "toggles": {
+      "dense_mode": "features_plus_negatives"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": true
+  },
+  {
+    "ablation_id": "dense_text_v1",
+    "experiment_name": "dense_text_v1",
+    "category": "dense",
+    "changed_component": "item_text_version",
+    "variant_description": "Dense item text version v1",
+    "toggles": {
+      "dense_text_version": "dense_v1"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_text_v2",
+    "experiment_name": "dense_text_v2",
+    "category": "dense",
+    "changed_component": "item_text_version",
+    "variant_description": "Dense item text version v2",
+    "toggles": {
+      "dense_text_version": "dense_v2"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_backend_A",
+    "experiment_name": "dense_backend_A_multilingual_minilm",
+    "category": "dense",
+    "changed_component": "dense_backend_A",
+    "variant_description": "Default multilingual MiniLM sentence-transformer",
+    "toggles": {
+      "dense_model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  },
+  {
+    "ablation_id": "dense_backend_B",
+    "experiment_name": "dense_backend_B_turkish_candidate",
+    "category": "dense",
+    "changed_component": "dense_backend_B",
+    "variant_description": "Alternative Turkish/multilingual sentence model candidate",
+    "toggles": {
+      "dense_model_name": "emrecan/bert-base-turkish-cased-mean-nli-stsb-tr"
+    },
+    "risk_note": "",
+    "requires_transformer": false,
+    "requires_real_dense": true,
+    "requires_negative_rebuild": false
+  }
+]

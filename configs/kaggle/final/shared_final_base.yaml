@@ -1,0 +1,39 @@
+final_mode: true
+frozen: true
+schema_version: final_freeze_v1
+competition: TEKNOFEST 2026 E-Ticaret Kaggle
+problem:
+  type: binary_pair_classification
+  metric: macro_f1
+  submission_columns:
+  - id
+  - prediction
+active_zones:
+  final:
+  - src_kaggle/
+  - scripts_kaggle/
+  - configs/kaggle/final/
+  - artifacts/final/
+  - reports/final/
+  experimental:
+  - configs/kaggle/experiments/
+  - reports/ablation/
+  - reports/leaderboard/
+  legacy:
+  - src/
+  - scripts/
+  - src_hackathon/
+  - scripts_hackathon/
+decision_priority:
+- OOF macro-F1
+- class0 F1
+- splitter reliability
+- threshold fragility
+- seed stability
+- segment collapse risk
+- model family drift
+- public LB
+submission_guard:
+  validator_required: true
+  registry_required: true
+  public_lb_is_last_signal: true
